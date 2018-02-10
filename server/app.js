@@ -30,3 +30,6 @@ if (!module.parent) {
   console.log('Listening on', app.get('port'));
 }
 
+app.get('/hello', (req, res) => {
+  res.send('hello')
+})
