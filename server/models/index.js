@@ -7,7 +7,7 @@ module.exports = {
     // a function which produces all the messages
     get: function (callback) {
      
-      dbConnection.query('SELECT users.username, rooms.roomname, messages.content FROM users, rooms, messages', function(err, results) {        
+      dbConnection.query('SELECT messages.content, rooms.roomname, users.username FROM messages, rooms, users WHERE messages.id_roomname = rooms.id AND messages.id_users = users.id', function(err, results) {        
         if (err) {
           throw err;
         }
@@ -24,7 +24,7 @@ module.exports = {
       console.log("MODELS data:", data);
       dbConnection.query('INSERT INTO users (username) VALUES("' + data.username + '")');
       dbConnection.query('INSERT INTO rooms (roomname) VALUES("' + data.roomname + '")');
-      dbConnection.query('INSERT INTO messages (content) VALUES("' + data.message + '")'); // + data.username + 
+      dbConnection.query('INSERT INTO messages (content, id_roomname, id_users) VALUES("' + data.message + '", 2, 3)'); // + data.username + 
       // when we receive get request from the client we want to insert the data into our database
       // send success message
       

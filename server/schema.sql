@@ -31,14 +31,17 @@ DESCRIBE messages;
 
 INSERT INTO rooms (roomname) VALUES('random chat');
 INSERT INTO users (username) VALUES('blinky dancer');
-INSERT INTO messages (content, id_roomname, id_users) VALUES ('hello world', 1, 1);
+INSERT INTO users (username) VALUES('Koopa');
+INSERT INTO messages (content, id_roomname, id_users) VALUES ('walking', 1, 2);
 INSERT INTO messages (content, id_roomname, id_users) VALUES ('lol', 1, 1);
-INSERT INTO messages (content, id_roomname, id_users) VALUES ('haha', 1, 1);
 
-SELECT * FROM messages;
+SELECT messages.content, rooms.roomname, users.username FROM messages, rooms, users WHERE 
+messages.id_roomname = rooms.id AND messages.id_users = users.id;
+
+/*
 SELECT * FROM rooms;
 SELECT * FROM users;
-
+*/
 
 
 /* Create other tables and define schemas for them here! */
