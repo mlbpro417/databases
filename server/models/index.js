@@ -5,23 +5,29 @@ var router = require('../routes.js');
 module.exports = {
   messages: {
     // a function which produces all the messages
-    get: function () {
-      dbConnection.connect();
+    get: function (callback) {
+     
       dbConnection.query('SELECT users.username, rooms.roomname, messages.content FROM users, rooms, messages', function(err, results) {        
         if (err) {
           throw err;
         }
-        console.log(results);
+        callback(err, results);
+        
       });
+      
     // when we receive get request from the controller we want to get data from the database
     // then we can get the messages from the database and pass it back to the controller
     }, 
 
     // a function which can be used to insert a message into the database
-    post: function () {
-      dbConnection.connect();
-    // when we receive get request from the client we want to insert the data into our database
-    // send success message
+    post: function (data) {
+      console.log("MODELS data:", data);
+      dbConnection.query('INSERT INTO users (username) VALUES("' + data.username + '")');
+      dbConnection.query('INSERT INTO rooms (roomname) VALUES("' + data.roomname + '")');
+      dbConnection.query('INSERT INTO messages (content) VALUES("' + data.message + '")'); // + data.username + 
+      // when we receive get request from the client we want to insert the data into our database
+      // send success message
+      
     } 
   },
 
@@ -31,5 +37,6 @@ module.exports = {
     post: function () {}
   }
 };
+
 
 

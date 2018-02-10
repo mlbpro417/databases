@@ -10,11 +10,11 @@ DROP TABLE IF EXISTS rooms;
 
 
 CREATE TABLE rooms(
-  id INTEGER UNIQUE AUTO_INCREMENT, roomname VARCHAR(30), PRIMARY KEY (id)
+  id INTEGER UNIQUE AUTO_INCREMENT, roomname VARCHAR(30) UNIQUE, PRIMARY KEY (id)
 );
 
 CREATE TABLE users(
-  id INTEGER UNIQUE AUTO_INCREMENT, username VARCHAR(30), PRIMARY KEY (id)
+  id INTEGER UNIQUE AUTO_INCREMENT, username VARCHAR(30) UNIQUE, PRIMARY KEY (id)
 );
 
 CREATE TABLE messages (
@@ -38,6 +38,7 @@ INSERT INTO messages (content, id_roomname, id_users) VALUES ('haha', 1, 1);
 SELECT * FROM messages;
 SELECT * FROM rooms;
 SELECT * FROM users;
+
 
 
 /* Create other tables and define schemas for them here! */
