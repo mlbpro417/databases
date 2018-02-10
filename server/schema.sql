@@ -28,11 +28,12 @@ show tables;
 
 DESCRIBE messages;
 
-INSERT INTO messages (content) VALUES ('hello world');
-INSERT INTO messages (content) VALUES ('lol');
-INSERT INTO messages (content) VALUES ('haha');
+
 INSERT INTO rooms (roomname) VALUES('random chat');
 INSERT INTO users (username) VALUES('blinky dancer');
+INSERT INTO messages (content, id_roomname, id_users) VALUES ('hello world', 1, 1);
+INSERT INTO messages (content, id_roomname, id_users) VALUES ('lol', 1, 1);
+INSERT INTO messages (content, id_roomname, id_users) VALUES ('haha', 1, 1);
 
 SELECT * FROM messages;
 SELECT * FROM rooms;

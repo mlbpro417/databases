@@ -7,11 +7,11 @@ module.exports = {
     // a function which produces all the messages
     get: function () {
       dbConnection.connect();
-      dbConnection.query('SELECT * FROM messages', function(err, results) {        
+      dbConnection.query('SELECT users.username, rooms.roomname, messages.content FROM users, rooms, messages', function(err, results) {        
         if (err) {
           throw err;
         }
-        console.log(typeof results[0]);
+        console.log(results);
       });
     // when we receive get request from the controller we want to get data from the database
     // then we can get the messages from the database and pass it back to the controller

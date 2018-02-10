@@ -5,7 +5,7 @@ module.exports = {
   messages: {
   // a function which handles a get request for all messages
     get: function (req, res) {
-      models.messages.get();
+      models.messages.get(); 
       res.send("Fetching data...");
       // when we receive get request from the client we want to invoke the get function on our model
       // then we can get the messages from the database
