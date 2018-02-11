@@ -29,14 +29,14 @@ show tables;
 DESCRIBE messages;
 
 
-INSERT INTO rooms (roomname) VALUES('random chat');
-INSERT INTO users (username) VALUES('blinky dancer');
-INSERT INTO users (username) VALUES('Koopa');
-INSERT INTO messages (content, id_roomname, id_users) VALUES ('lol', 1, 1);
-INSERT INTO messages (content, id_roomname, id_users) VALUES ('walking', 1, 2);
+-- INSERT INTO rooms (roomname) VALUES('random chat');
+-- INSERT INTO users (username) VALUES('blinky dancer');
+-- INSERT INTO users (username) VALUES('Koopa');
+-- INSERT INTO messages (content, id_roomname, id_users) VALUES ('lol', 1, 1);
+-- INSERT INTO messages (content, id_roomname, id_users) VALUES ('walking', 1, 2);
 
-SELECT messages.content, rooms.roomname, users.username FROM messages, rooms, users WHERE 
-messages.id_roomname = rooms.id AND messages.id_users = users.id;
+-- SELECT messages.content, rooms.roomname, users.username FROM messages, rooms, users WHERE 
+-- messages.id_roomname = rooms.id AND messages.id_users = users.id;
 
 
 

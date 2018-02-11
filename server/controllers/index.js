@@ -7,7 +7,6 @@ module.exports = {
     get: function (req, res) {
       models.messages.get(function(err, results) {
         if (err) {
-          console.log(err);
           throw err;
         }
         res.json(results);
@@ -20,7 +19,7 @@ module.exports = {
     // a function which handles posting a message to the database
     post: function (req, res) {
       models.messages.post(req.body);
-      res.send("message received!");
+      res.send('message received!');
       // when we receive a post request we want to invoke the post function on our model
       // then post the message to the database
     } 
@@ -29,8 +28,17 @@ module.exports = {
   users: {
     // Ditto as above
     get: function (req, res) {
+      models.users.get(function(err, results) {
+        if (err) {
+          throw err;
+        }
+        res.json(results);
+      });
     },
-    post: function (req, res) {}
+    post: function (req, res) {
+      models.users.post(req.body);
+      res.send('username received!');
+    }
   }
 };
 
